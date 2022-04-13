@@ -24,9 +24,9 @@ public class Solution {
      * @return: return an integer denoting the number of non-unique(duplicate) values
      */
     public List<Integer> CountDuplicates(List<Integer> nums) {
-        HashMap<Integer, Integer> map = new HashMap();
+        HashMap<Integer, Integer> map = new HashMap<>();
 
-        LinkedList<Integer> result = new LinkedList();
+        LinkedList<Integer> result = new LinkedList<>();
         for (int number : nums) {
             if (map.containsKey(number)) {
                 map.put(number, map.get(number) + 1);
