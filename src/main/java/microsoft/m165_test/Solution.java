@@ -1,12 +1,13 @@
 package microsoft.m165_test;
 
-import cn.hjmao.utils.list.ListNode;
+import cn.hjmao.utils.tree.TreeNode;
 
 public class Solution {
     protected static final boolean SOLUTION_DONE = true;
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public int goodNodes(TreeNode root) {
 
-        return null;
+        System.out.println("haha");
+        return 0;
     }
 }

@@ -1,13 +1,12 @@
-package microsoft.m165_test;
+package microsoft.oa2;
 
-import cn.hjmao.utils.tree.TreeNode;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 public class SolutionTest {
-    private microsoft.m165_test.Solution solution;
+    private microsoft.oa2.Solution solution;
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -15,11 +14,10 @@ public class SolutionTest {
     }
 
     @Test(enabled = Solution.SOLUTION_DONE)
-    public void testMergeTwoLists() throws Exception {
-
-        TreeNode root = new TreeNode(1);
-        int result = solution.goodNodes(root);
-
-        assertEquals(0, 0);
+    public void testArraySigh() throws Exception{
+        int[] nums = new int[]{-1,-2,-3,-4,3,2,1};
+        int result = solution.arraySign(nums);
+        int expected = 1;
+        assertEquals(result, expected);
     }
 }
