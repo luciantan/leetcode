@@ -23,7 +23,7 @@ public class Solution {
 
     public int zombie(int[][] grid) {
         // write your code here
-        LinkedList<Point> queue = new LinkedList();
+        LinkedList<Point> queue = new LinkedList<>();
         boolean isEmpty = true;
         for(int row = 0; row < grid.length; row++) {
             for (int column = 0; column < grid[row].length; column++) {

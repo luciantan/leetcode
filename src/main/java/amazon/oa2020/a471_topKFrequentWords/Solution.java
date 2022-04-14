@@ -49,7 +49,7 @@ public class Solution {
      */
     public String[] topKFrequentWords(String[] words, int k) {
         // write your code here
-        HashMap<String, Integer> map = new HashMap();
+        HashMap<String, Integer> map = new HashMap<>();
         for (int i = 0; i < words.length; i++) {
             if (map.containsKey(words[i])) {
                 map.put(words[i], map.get(words[i]) + 1);

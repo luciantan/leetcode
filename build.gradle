@@ -30,18 +30,32 @@ repositories {
 }
 
 dependencies {
-  compile(
-    ['com.squareup.okhttp3:okhttp:3.14.1'],
-    ['org.jsoup:jsoup:1.11.3'],
-    ['org.json:json:20180813'],
-    ['org.slf4j:slf4j-api:1.7.26'],
-    ['org.apache.logging.log4j:log4j-slf4j-impl:2.11.2']
-  )
+//  compile(
+////    ['com.squareup.okhttp3:okhttp:3.14.1'],
+////    ['org.jsoup:jsoup:1.11.3'],
+////    ['org.json:json:20180813'],
+////    ['org.slf4j:slf4j-api:1.7.26'],
+//    ['org.apache.logging.log4j:log4j-api:2.17.2'],
+//    ['org.apache.logging.log4j:log4j-core:2.17.2']
+//  )
 
-  testCompile(
-    ['org.testng:testng:6.14.3'],
-    ['org.mockito:mockito-core:2.27.0']
-  )
+  implementation 'com.squareup.okhttp3:okhttp:3.14.1'
+  implementation 'org.jsoup:jsoup:1.11.3'
+  implementation 'org.json:json:20180813'
+  implementation 'org.slf4j:slf4j-api:1.7.26'
+
+  implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
+
+
+  implementation 'org.apache.logging.log4j:log4j-api:2.17.2'
+  implementation 'org.apache.logging.log4j:log4j-core:2.17.2'
+
+  testImplementation group: 'org.testng', name: 'testng', version: '7.5'
+  testImplementation 'org.mockito:mockito-core:2.27.0'
+//  testCompile(
+//    ['org.testng:testng:6.14.3'],
+//    ['org.mockito:mockito-core:2.27.0']
+//  )
 }
 
 sourceSets {
@@ -57,10 +71,10 @@ compileJava {
   options.compilerArgs << '-Xlint:unchecked'
 }
 
-checkstyle {
-  toolVersion = '6.19'
-  configDir = file("$rootProject.projectDir/config/checkstyle")
-}
+//checkstyle {
+//  toolVersion = '6.19'
+////  configDir = file("$rootProject.projectDir/config/checkstyle")
+//}
 
 test {
   useTestNG() {
@@ -76,18 +90,18 @@ test {
   }
 }
 
-jacocoTestReport {
-  reports {
-    xml.enabled = true
-  }
-  afterEvaluate {
-//    getClassDirectories().setFrom(
-    classDirectories = files(classDirectories.files.collect {
-      fileTree(dir: it, excludes: ['**/com/leetcode/**', 'src/main/java/cn/hjmao/ProblemFetcher*'])
-    })
-//    )
-  }
-}
+//jacocoTestReport {
+//  reports {
+//    xml.enabled = true
+//  }
+//  afterEvaluate {
+////    getClassDirectories().setFrom(
+//    classDirectories = files(classDirectories.files.collect {
+//      fileTree(dir: it, excludes: ['**/com/leetcode/**', 'src/main/java/cn/hjmao/ProblemFetcher*'])
+//    })
+////    )
+//  }
+//}
 
 coveralls {
   jacocoReportPath 'build/reports/jacoco/test/jacocoTestReport.xml'
