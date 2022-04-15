@@ -20,13 +20,13 @@ package com.leetcode.snippets.a044wildcardmatching;
  * bool isMatch(const char *s, const char *p)
  *
  * Some examples:
- * isMatch("aa","a") → false
- * isMatch("aa","aa") → true
- * isMatch("aaa","aa") → false
- * isMatch("aa", "*") → true
- * isMatch("aa", "a*") → true
- * isMatch("ab", "?*") → true
- * isMatch("aab", "c*a*b") → false
+ * isMatch("aa","a")  false
+ * isMatch("aa","aa")  true
+ * isMatch("aaa","aa")  false
+ * isMatch("aa", "*")  true
+ * isMatch("aa", "a*")  true
+ * isMatch("ab", "?*") true
+ * isMatch("aab", "c*a*b")  false
  */
 
 public class Solution {
