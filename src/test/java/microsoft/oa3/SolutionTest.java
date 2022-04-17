@@ -24,6 +24,14 @@ public class SolutionTest {
         int result3 = solution.findLargeNum(154859);
         int expected3 = 15489;
         assertEquals(result3, expected3);
+        assertEquals(solution.findLargeNum(154859), 15489);
+
+        assertEquals(solution.findLargeNum(5005), 500);
+
+        assertEquals(solution.findLargeNum(50123), 123);
+        assertEquals(solution.findLargeNum(501235), 50123);
+        assertEquals(solution.findLargeNum(500123), 123);
+        assertEquals(solution.findLargeNum(5001235), 500123);
     }
 
     @Test(enabled = Solution.SOLUTION_DONE)
@@ -34,5 +42,15 @@ public class SolutionTest {
         int result2 = solution.getDigit(15958, 4);
         int expected2 = 8;
         assertEquals(result2, expected2);
+        assertEquals(solution.getDigit(5005, 0), 5);
+        assertEquals(solution.getDigit(5005, 3), 5);
+//        assertEquals(solution.getDigit(-5005, 0), 5);
+    }
+
+    @Test(enabled = Solution.SOLUTION_DONE)
+    public void testDeleteDigit() throws  Exception {
+        assertEquals(solution.deleteDigit(5005, 0),5);
+        assertEquals(solution.deleteDigit(5005, 3),500);
+
     }
 }

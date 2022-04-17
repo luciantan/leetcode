@@ -1,5 +1,9 @@
 package microsoft.oa3;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 //Given an integer N, returns the maximum possible value obtainable by deleting one '5' digit from N. N has at least one '5' and two digits.
 //e.g. N=15958 return 1958 N = -5859 return -589  解法是遍历整个list
 public class Solution {
@@ -46,25 +50,49 @@ public class Solution {
 
     // index is from left to right. index starts from 0
     // input: 15958, 0, output: 5958
-    private int deleteDigit(int num, int index) {
+    public int deleteDigit(int num, int index) {
+//        StringBuilder sb = new StringBuilder("" + num);
+//        sb.deleteCharAt(index);
+//        return Integer.parseInt(sb.toString());
+
         int length = (int)Math.log10(num) + 1;
-        int reversedResult = 0;
-        for (int i = 0; num != 0; i++) {
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = length - 1; i >= 0; i--) {
             int digit = num % 10;
             num = num / 10;
-            if (i == (length - index - 1)) {
+            if (i == index) {
                 continue;
             } else {
-                reversedResult = reversedResult * 10 + digit;
+                stack.push(digit);
             }
         }
-        int result = 0;
-        for (int i = 0; reversedResult != 0; i++) {
-            result = result * 10 + reversedResult % 10;
-            reversedResult = reversedResult / 10;
-        }
 
+        int result = 0;
+        for (int i = 0; !stack.isEmpty() ; i++) {
+            result = result * 10 + stack.pop();
+        }
         return result;
+
+
+//        int length = (int)Math.log10(num) + 1;
+//        int reversedResult = 0;
+//        for (int i = 0; num != 0; i++) {
+//            int digit = num % 10;
+//            num = num / 10;
+//            if (i == (length - index - 1)) {
+//                continue;
+//            } else {
+//                reversedResult = reversedResult * 10 + digit;
+//            }
+//        }
+//        int result = 0;
+//        for (int i = 0; reversedResult != 0; i++) {
+//            result = result * 10 + reversedResult % 10;
+//            reversedResult = reversedResult / 10;
+//        }
+//
+//        return result;
     }
 
     // index is from left to right, index starts from 0

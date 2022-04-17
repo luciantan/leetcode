@@ -24,5 +24,6 @@ public class SolutionTest {
         int result3 = solution.findLargeNum(154859);
         int expected3 = 15489;
         assertEquals(result3, expected3);
+        assertEquals(solution.findLargeNum(5005), 500);
     }
 }

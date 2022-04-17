@@ -14,7 +14,6 @@ public class SolutionTest {
     public void setUp() throws Exception {
         this.solution = new Solution();
     }
-
     @Test (enabled = Solution.SOLUTION_DONE)
     public void testMergeTwoLists() throws Exception {
         int[] list1 = {1, 3, 5};
