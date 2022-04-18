@@ -21,4 +21,12 @@ public class SolutionTest {
         int expected3 = 2;
         assertEquals(result3, expected3);
     }
+
+    @Test(enabled= Solution.SOLUTION_DONE)
+    public void testMaxNumberOfFamilies2() {
+        int[][] reservedSeats = new int[][] {{1,2}, {1,3}, {1,8}, {2, 6}, {3,1}, {3, 10}};
+        int result = solution.maxNumberOfFamilies(3, reservedSeats);
+        int expected = 4;
+        assertEquals(result, expected);
+    }
 }

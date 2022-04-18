@@ -1,5 +1,8 @@
 package microsoft.oa5;
 
+import java.util.HashMap;
+import java.util.Map;
+
 //
 // https://leetcode.com/problems/cinema-seat-allocation/
 //        A cinema has n rows of seats, numbered from 1 to n and there are ten seats in each row, labelled from 1 to 10 as shown in the figure above.
@@ -12,8 +15,28 @@ public class Solution {
     protected static final boolean SOLUTION_DONE = true;
 
     public int maxNumberOfFamilies(int n, int[][] reservedSeats) {
+        int left = 0b11110000;
+        int middle = 0b11000011;
+        int right = 0b00001111;
 
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int[] seat : reservedSeats) {
+            if (seat[1] >= 2 && seat[1] <= 9) {
+                int origin = map.getOrDefault(seat[0], 0);
+                int updated = origin | (1 << seat[1] - 2);  //把1左移这么多次，表示这一位座位被占了
+                map.put(seat[0], updated);
+            }
+        }
 
-        return 0;
+        int result = (n - map.size()) * 2;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            int row = entry.getKey();
+            int bitmask = entry.getValue();
+            if ((bitmask | left) == left || (bitmask | middle) == middle || (bitmask | right) == right) {
+                result++;
+            }
+        }
+
+        return result;
     }
 }
